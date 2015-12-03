@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="app.css"/>
     <script src="jquery-1.7.2.js"></script>
     <script src="rx.all.js"></script>
+    <script src="rx-dom.js"></script>
     <script src="app.js"></script>
     <meta charset="utf-8">
     <title>JS Bin</title>
@@ -13,18 +14,9 @@
     <div class="header">
         <h3>Archive case list</h3>
     </div>
-    <input id="textInput" type="text">
-    <button>Fetch next</button>
+    Fetch next 25 from id <input id="textInput" type="text">
     <ul class="suggestions">
-        <li class="suggestion1">
-            <a href="#" target="_blank" class="casename">this will not be displayed</a>
-        </li>
-        <li class="suggestion2">
-            <a href="#" target="_blank" class="casename">neither this</a>
-        </li>
-        <li class="suggestion3">
-            <a href="#" target="_blank" class="casename">nor this</a>
-        </li>
+        <li class="suggestion1"><a href="#" target="_blank" class="casename">No cases loaded</a></li>
     </ul>
 </div>
 </body>

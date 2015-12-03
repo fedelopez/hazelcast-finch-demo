@@ -4,13 +4,12 @@ import cat.pseudocodi.domain.RDRCase
 import com.hazelcast.config._
 import com.hazelcast.core._
 import com.twitter.app.Flag
-import com.twitter.finagle.{Service, Http}
 import com.twitter.finagle.http.{Request, Response}
 import com.twitter.finagle.param.Stats
+import com.twitter.finagle.{Http, Service}
 import com.twitter.server.TwitterServer
 import com.twitter.util.Await
-import io.finch.Endpoint
-import io.finch._
+import io.finch.{Endpoint, _}
 import io.finch.circe._
 
 import scala.language.{implicitConversions, postfixOps}
@@ -20,7 +19,6 @@ import scala.language.{implicitConversions, postfixOps}
   */
 object Main extends TwitterServer {
 
-  val maxNumberOfCases = 100000
   val instance = Hazelcast.newHazelcastInstance(new Config())
   val mapCases = instance.getMap[Int, RDRCase]("cases")
 

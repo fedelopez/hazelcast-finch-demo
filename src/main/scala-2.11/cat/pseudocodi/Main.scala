@@ -4,13 +4,11 @@ import cat.pseudocodi.domain.RDRCase
 import com.hazelcast.config._
 import com.hazelcast.core._
 import com.twitter.app.Flag
-import com.twitter.finagle.http.{Request, Response}
-import com.twitter.finagle.param.Stats
-import com.twitter.finagle.{Http, Service}
+import com.twitter.finagle.Http
 import com.twitter.server.TwitterServer
 import com.twitter.util.Await
-import io.finch.{Endpoint, _}
 import io.finch.circe._
+import io.finch.{Endpoint, _}
 
 import scala.language.{implicitConversions, postfixOps}
 
@@ -27,12 +25,10 @@ object Main extends TwitterServer {
     Ok(result)
   }
 
-  val api: Service[Request, Response] = cases.toService
-
   def main(): Unit = {
     log.info("Serving the web application")
     val port: Flag[Int] = flag("port", 8080, "TCP port for HTTP server")
-    val server = Http.server.configured(Stats(statsReceiver)).serve(s":${port()}", api)
+    val server = Http.server.serve(s":${port()}", cases.toService)
     onExit {
       server.close()
     }

@@ -21,10 +21,10 @@ object DBInit {
     val instance = Hazelcast.newHazelcastInstance(newConfig())
     val mapCases = instance.getMap[Int, RDRCase]("cases")
 
-    val o = Observable.interval(1 second).takeWhile(p => mapCases.size() < maxNumberOfCases)
+    val o = Observable.interval(1 second).takeUntil(p => mapCases.size() >= maxNumberOfCases)
     o.subscribe(n => println(s"Size: ${mapCases.size()}, last: ${mapCases.get(mapCases.size() - 1)}"))
 
-    Range(0, maxNumberOfCases - 1).foreach((n: Int) =>  mapCases.put(n, simpleCase(n)))
+    Range(0, maxNumberOfCases).foreach((n: Int) => mapCases.put(n, simpleCase(n)))
   }
 
   def simpleCase(n: Int) =

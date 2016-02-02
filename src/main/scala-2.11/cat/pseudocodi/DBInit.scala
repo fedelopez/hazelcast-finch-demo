@@ -9,6 +9,7 @@ import rx.lang.scala.Observable
 
 import scala.concurrent.duration.DurationInt
 import scala.language.{implicitConversions, postfixOps}
+import scala.util.Random
 
 /**
   * @author FedericoL
@@ -28,7 +29,7 @@ object DBInit {
   }
 
   def simpleCase(n: Int) =
-    new RDRCase(n.toString, s"case-$n", Set(new Episode(new Date(), Set(new Attribute("glucose", "5.8")))), Set(new Conclusion("diabetic")))
+    new RDRCase(n.toString, s"case-$n", Set(new Episode(new Date(), Set(new Attribute("glucose", String.valueOf(Random.nextFloat() * 20))))), Set(new Conclusion("diabetic")))
 
   def newConfig(): Config = {
     val maxSizeConfig = new MaxSizeConfig()

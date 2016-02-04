@@ -7,7 +7,7 @@
         });
         var tagInput = document.querySelector('#tagInput');
         Rx.DOM.keyup(tagInput).pluck('target', 'value').debounce(500).subscribe(function (x) {
-            renderCaseNames(x, "cases_by_tag");
+            renderCaseNames(x, "cases/concept");
         });
     }
 

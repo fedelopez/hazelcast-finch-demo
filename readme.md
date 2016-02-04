@@ -6,3 +6,4 @@ Todo:
 
 * Map/reduce example
 * Take care of CORS on the browser using RxJS or serve static content
+* display case information

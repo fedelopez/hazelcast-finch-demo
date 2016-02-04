@@ -31,7 +31,7 @@ object Main extends TwitterServer {
     Ok(result)
   }
 
-  val casesByTag: Endpoint[List[String]] = get("cases_by_tag" / string) { tag: String =>
+  val casesByConcept: Endpoint[List[String]] = get("cases" / "concept" / string) { tag: String =>
     val e: EntryObject = new PredicateBuilder().getEntryObject
     val predicate = e.get("conclusion").equal(tag)
     val result: List[String] = mapCases.values(predicate).toList.take(25).map(rdrCase => rdrCase.name)
@@ -46,7 +46,7 @@ object Main extends TwitterServer {
   def main(): Unit = {
     log.info("Serving the web application")
     val port: Flag[Int] = flag("port", 8080, "TCP port for HTTP server")
-    val server = Http.server.serve(s":${port()}", (cases :+: casesByTag :+: caseDetails).toService)
+    val server = Http.server.serve(s":${port()}", (cases :+: casesByConcept :+: caseDetails).toService)
     onExit {
       server.close()
     }

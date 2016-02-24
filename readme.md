@@ -1,9 +1,13 @@
-Hazelcast trial using Finch as backend and RXJs as front-end
+#Hazelcast trial 
 
-Use `chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security`
+This demo web app uses 
 
-Todo:
+* [Twitter's Finch](https://github.com/finagle/finch) as backend and 
+* [RXJs](https://github.com/Reactive-Extensions/RxJS) as front-end
 
-* Map/reduce example
-* Take care of CORS on the browser using RxJS or serve static content
-* display case information
+**Note** use `chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security`
+
+##Todo
+
+* Map/reduce example (wip)
+* Serve web app static content so we don't have to disable web security on Chrome

@@ -1,25 +1,36 @@
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="app.css"/>
-    <script src="jquery-1.7.2.js"></script>
-    <script src="rx.all.js"></script>
-    <script src="rx-dom.js"></script>
-    <script src="app.js"></script>
+    <link rel="stylesheet" href="css/codemirror.css">
+    <link rel="stylesheet" href="css/dracula.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css"/>
     <meta charset="utf-8">
     <title>JS Bin</title>
 </head>
 <body>
-<div class="container">
+<div>
     <div class="header">
         <h3>Archive case list</h3>
     </div>
-    Fetch next 25
-    <label for="textInput">from id </label><input id="textInput" type="text">
-    <strong style="margin-left: 10px;margin-right: 10px">OR</strong>
-    <label for="tagInput">by concept </label><input id="tagInput" type="text">
-    <ul class="suggestions">
-        <li class="suggestion1"><a href="#" class="casename">No cases loaded</a></li>
-    </ul>
+    <div class="form">
+        Fetch next 25
+        <label for="textInput">from id </label><input id="textInput" type="text">
+        <strong class="or">OR</strong>
+        <label for="tagInput">by concept </label><input id="tagInput" type="text">
+    </div>
+    <div class="suggestions">
+        <ul>
+            <li><a href="#" class="casename">No cases loaded</a></li>
+        </ul>
+    </div>
+    <div class="caseData">
+        <textarea id="caseJSON"></textarea>
+    </div>
 </div>
+<script src="lib/codemirror.js"></script>
+<script src="lib/javascript-mode.js"></script>
+<script src="lib/jquery-1.7.2.js"></script>
+<script src="lib/rx.all.js"></script>
+<script src="lib/rx-dom.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

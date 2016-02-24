@@ -2,32 +2,66 @@ body {
     font-family: sans-serif;
     padding: 10px;
 }
+
 h3 {
     font-weight: bold;
     display: inline-block;
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
+
+.or {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 .refresh {
     font-size: 80%;
     margin-left: 10px;
 }
+
 .header {
     background: #ECECEC;
     padding: 5px;
     margin-bottom: 5px;
 }
-.suggestions {
+
+.form {
+    margin-top: 10px;
     border: 2px solid #ECECEC;
+    padding: 15px;
 }
+
+.suggestions {
+    margin-top: 10px;
+    border: 2px solid #ECECEC;
+    width: 200px;
+    height: 600px;
+    overflow-y: auto;
+    margin-right: 50px;
+    float: left;
+}
+
+.caseData {
+    margin-top: 15px;
+    height: 600px;
+}
+
+.CodeMirror {
+    border: 1px solid #eee;
+    height: auto;
+}
+
 li {
     padding: 5px;
 }
+
 li img {
     width: 40px;
     height: 40px;
     border-radius: 20px;
 }
+
 li .casename {
     display: inline-block;
     position: relative;

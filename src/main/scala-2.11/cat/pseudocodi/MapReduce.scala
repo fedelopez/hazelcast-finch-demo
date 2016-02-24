@@ -42,7 +42,9 @@ object MapReduce {
     @volatile
     var value: Int = 0
 
-    override def reduce(valueIn: Integer): Unit = this.value += valueIn
+    override def reduce(valueIn: Integer): Unit = {
+      value += valueIn
+    }
 
     override def finalizeReduce(): Integer = value
   }

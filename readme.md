@@ -1,4 +1,4 @@
-#Hazelcast trial 
+#Hazelcast / Finch Demo 
 
 This demo web app showcases: 
 

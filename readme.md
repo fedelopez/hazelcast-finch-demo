@@ -15,3 +15,4 @@ This demo web app showcases:
 ###Todo
 
 - Use drop down list for "concepts" field
+- Put waiting indicator while cases are loading

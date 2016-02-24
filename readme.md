@@ -11,3 +11,7 @@ This demo web app showcases:
 - Run `DBInit.scala` to initialise the Hazelcast DB
 - Run `Main.scala` to start the Finch server
 - Open the browser and go to http://localhost:8080
+
+###Todo
+
+- Use drop down list for "concepts" field

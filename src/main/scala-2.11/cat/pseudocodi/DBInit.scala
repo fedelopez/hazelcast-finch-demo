@@ -13,7 +13,7 @@ import scala.language.{implicitConversions, postfixOps}
 import scala.util.Random._
 
 /**
-  * @author FedericoL
+  * @author Fede Lopez
   */
 object DBInit {
 

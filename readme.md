@@ -9,5 +9,5 @@ This demo web app uses
 
 ##Todo
 
-* Map/reduce example (wip)
+* Order json values so they always appear in the same order
 * Serve web app static content so we don't have to disable web security on Chrome

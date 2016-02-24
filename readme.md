@@ -1,13 +1,13 @@
 #Hazelcast trial 
 
-This demo web app uses 
+This demo web app showcases: 
 
-* [Twitter's Finch](https://github.com/finagle/finch) as backend and 
+* [Hazelcast](http://hazelcast.org/) as memory data store 
+* [Twitter's Finch](https://github.com/finagle/finch) as backend 
 * [RXJs](https://github.com/Reactive-Extensions/RxJS) as front-end
 
-**Note** use `chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security`
+##Instructions
 
-##Todo
-
-* Order json values so they always appear in the same order
-* Serve web app static content so we don't have to disable web security on Chrome
+- Run `DBInit.scala` to initialise the Hazelcast DB
+- Run `Main.scala` to start the Finch server
+- Open the browser and go to http://localhost:8080

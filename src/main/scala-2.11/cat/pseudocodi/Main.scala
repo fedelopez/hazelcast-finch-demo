@@ -1,5 +1,7 @@
 package cat.pseudocodi
 
+import java.io.File
+
 import cat.pseudocodi.domain.RDRCase
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.scala.DefaultScalaModule
@@ -8,6 +10,7 @@ import com.hazelcast.core._
 import com.hazelcast.query.{EntryObject, PredicateBuilder}
 import com.twitter.app.Flag
 import com.twitter.finagle.Http
+import com.twitter.io.{Buf, Reader}
 import com.twitter.server.TwitterServer
 import com.twitter.util.Await
 import io.finch.jackson._
@@ -43,19 +46,31 @@ object Main extends TwitterServer {
     Ok(result)
   }
 
+  val index: Endpoint[Buf] = get("app") {
+    Ok(Reader.readAll(Reader.fromFile(new File("src/main/resources/index.html")))).withContentType(Some("text/html"))
+  }
+
+  val cssFile: Endpoint[Buf] = get("css" / string) { cssFilename: String =>
+    Ok(Reader.readAll(Reader.fromFile(new File(s"src/main/resources/css/$cssFilename")))).withContentType(Some("text/css"))
+  }
+
+  val jsFile: Endpoint[Buf] = get("js" / string) { jsScript: String =>
+    Ok(Reader.readAll(Reader.fromFile(new File(s"src/main/resources/js/$jsScript")))).withContentType(Some("text/javascript"))
+  }
+
   def main(): Unit = {
     val port: Flag[Int] = flag("port", 8080, "TCP port for HTTP server")
-    val server = Http.server.serve(s":${port()}", (caseNames :+: caseNamesByConcept :+: caseById).toService)
+    val server = Http.server.serve(s":${port()}", (caseNames :+: caseNamesByConcept :+: caseById :+: index :+: cssFile :+: jsFile).toService)
     onExit {
       server.close()
     }
     Await.ready(server)
-    log.info(s"Serving the web application at port $port")
+    log.info(s"Serving the web application on port $port")
   }
 
   def findCases(from: Int, to: Int): List[String] = {
-    val cases: List[RDRCase] = for (i <- List.range(from, to)) yield mapCases.get(i)
-    cases.map(rdrCase => rdrCase.name)
+    for (i <- List.range(from, to))
+      yield mapCases.get(i).name
   }
 
 }

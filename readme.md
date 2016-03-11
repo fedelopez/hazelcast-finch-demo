@@ -10,7 +10,7 @@ This demo web app showcases:
 
 - Run `DBInit.scala` to initialise the Hazelcast DB
 - Run `Main.scala` to start the Finch server
-- Open the browser and go to http://localhost:8080
+- Open the browser and go to http://localhost:8080/app
 
 ###Todo
 

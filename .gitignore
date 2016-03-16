@@ -2,6 +2,8 @@
 target
 node_modules
 npm-debug.log
-js/*
-css/*
-\!app.*
+/src/main/resources/js/*
+/src/main/resources/css/*
+!app.js
+!app.css
+

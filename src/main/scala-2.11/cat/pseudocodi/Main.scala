@@ -36,7 +36,7 @@ object Main extends TwitterServer {
   val caseNamesByConcept: Endpoint[List[String]] = get("cases" / "concept" / string) { tag: String =>
     val e: EntryObject = new PredicateBuilder().getEntryObject
     val predicate = e.get("conclusion").equal(tag)
-    val result: List[String] = mapCases.values(predicate).take(25).toList.map(rdrCase => rdrCase.name)
+    val result: List[String] = mapCases.values(predicate).take(25).toList.map(rdrCase => rdrCase.name).sorted
     Ok(result)
   }
 

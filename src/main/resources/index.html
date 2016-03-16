@@ -15,7 +15,12 @@
         Fetch next 25
         <label for="textInput">from id </label><input id="textInput" type="text">
         <strong class="or">OR</strong>
-        <label for="tagInput">by concept </label><input id="tagInput" type="text">
+        <label for="conceptInput">by concept </label><select id="conceptInput">
+        <option disabled selected value>-- select a medical concept --</option>
+        <option value="dehydration">Dehydration</option>
+        <option value="diabetic">Diabetic</option>
+        <option value="pregnant">Pregnant</option>
+    </select>
     </div>
     <div class="suggestions">
         <ul>
@@ -28,9 +33,9 @@
 </div>
 <script src="js/codemirror.js"></script>
 <script src="js/javascript-mode.js"></script>
-<script src="js/jquery-1.7.2.js"></script>
-<script src="js/rx.all.js"></script>
-<script src="js/rx-dom.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/rx.all.min.js"></script>
+<script src="js/rx.dom.min.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

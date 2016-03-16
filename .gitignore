@@ -1,2 +1,7 @@
 .idea
 target
+node_modules
+npm-debug.log
+js/*
+css/*
+\!app.*

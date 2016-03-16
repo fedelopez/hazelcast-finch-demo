@@ -8,11 +8,17 @@ This demo web app showcases:
 
 ##Instructions
 
+###Intialise Hazelcast
+
 - Run `DBInit.scala` to initialise the Hazelcast DB
+
+###Start web server
+
+- On the command prompt, run `npm install`
 - Run `Main.scala` to start the Finch server
 - Open the browser and go to http://localhost:8080/app
 
 ###Todo
 
-- Use drop down list for "concepts" field
 - Put waiting indicator while cases are loading
+- Script a console demo on `docs` folder based on [Hazelcast getting started](http://hazelcast.org/getting-started)

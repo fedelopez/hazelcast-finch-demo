@@ -1,0 +1,12 @@
+{
+  "name": "hazelcast-finch-demo",
+  "version": "1.0.0",
+  "description": "This demo web app showcases: a hazelcast backed app",
+  "homepage": "https://github.com/fedelopez/hazelcast-finch-demo#readme",
+  "dependencies": {
+    "codemirror": "^5.12.0",
+    "jquery": "^2.2.1",
+    "rx": "^4.1.0",
+    "rx-dom": "^7.0.3"
+  }
+}

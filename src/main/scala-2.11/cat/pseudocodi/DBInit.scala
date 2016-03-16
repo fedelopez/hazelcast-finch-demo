@@ -18,10 +18,10 @@ import scala.util.Random._
 object DBInit {
 
   val maxNumberOfCases = 100000
-  val nameGenerator = new Faker()
+  val faker = new Faker()
 
   def main(args: Array[String]) {
-    val instance = Hazelcast.newHazelcastInstance(newConfig())
+    val instance = Hazelcast.newHazelcastInstance()
     val mapCases = instance.getMap[Int, RDRCase]("cases")
 
     val o = Observable.interval(1 second).takeUntil(p => mapCases.size() >= maxNumberOfCases)
@@ -31,10 +31,10 @@ object DBInit {
   }
 
   def simpleCase(n: Int) = {
-    val name = new Attribute("name", nameGenerator.name().fullName())
+    val name = new Attribute("name", faker.name().fullName())
     val sex = new Attribute("sex", if (nextBoolean()) "F" else "M")
-    val address = new Attribute("address", nameGenerator.address().streetAddress(true))
-    val country = new Attribute("country", nameGenerator.country().name())
+    val address = new Attribute("address", faker.address().streetAddress(true))
+    val country = new Attribute("country", faker.country().name())
     val glucose = new Attribute("glucose", (nextFloat() * 10).toString)
     val insulin = new Attribute("insulin", (nextFloat() * 15).toString)
     val concepts = List("diabetic", "pregnant", "dehydration")

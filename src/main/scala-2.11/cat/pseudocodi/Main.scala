@@ -5,8 +5,7 @@ import java.io.File
 import cat.pseudocodi.domain.RDRCase
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.scala.DefaultScalaModule
-import com.hazelcast.config._
-import com.hazelcast.core._
+import com.hazelcast.client.HazelcastClient
 import com.hazelcast.query.{EntryObject, PredicateBuilder}
 import com.twitter.app.Flag
 import com.twitter.finagle.Http
@@ -24,7 +23,7 @@ import scala.language.{implicitConversions, postfixOps}
   */
 object Main extends TwitterServer {
 
-  val instance = Hazelcast.newHazelcastInstance(new Config())
+  val instance = HazelcastClient.newHazelcastClient()
   val mapCases = instance.getMap[Int, RDRCase]("cases")
 
   implicit val objectMapper: ObjectMapper = new ObjectMapper().registerModule(DefaultScalaModule)

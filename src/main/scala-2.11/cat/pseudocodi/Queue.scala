@@ -2,7 +2,6 @@ package cat.pseudocodi
 
 import java.util.concurrent.{BlockingQueue, TimeUnit}
 
-import com.hazelcast.config.Config
 import com.hazelcast.core.{Hazelcast, HazelcastInstance}
 import rx.lang.scala.Observable
 
@@ -16,11 +15,11 @@ import scala.concurrent.duration.DurationInt
 object Queue {
 
   def main(args: Array[String]): Unit = {
-    val h: HazelcastInstance = Hazelcast.newHazelcastInstance(new Config())
+    val h: HazelcastInstance = Hazelcast.newHazelcastInstance()
     val queue: BlockingQueue[String] = h.getQueue("nba-draft-players")
 
     queue.offer("Cliff Alexander")
-    val player1: String = queue.poll()
+    val player1: String = queue.poll() //immediately returns
     println(s"Player got: $player1")
 
     queue.offer("Justin Anderson", 500, TimeUnit.MILLISECONDS)

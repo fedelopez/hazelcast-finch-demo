@@ -11,5 +11,8 @@
   },
   "scripts": {
     "postinstall": "node npm-init.js"
+  },
+  "devDependencies": {
+    "copia": "0.0.1"
   }
 }
